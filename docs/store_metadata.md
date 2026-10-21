@@ -73,9 +73,9 @@ Ce document rassemble l'ensemble des métadonnées, fiches descriptives multilin
     ```
 
 - **URLs obligatoires :**
-  - **URL de support :** `https://dynamicplates.ch/support`
-  - **URL de marketing :** `https://dynamicplates.ch`
-  - **URL de politique de confidentialité :** `https://dynamicplates.ch/privacy-policy.html`
+  - **URL de l'application Web PWA (GitHub Pages) :** `https://notben.github.io/dynamic-plates-edu/`
+  - **URL de politique de confidentialité (en ligne) :** `https://notben.github.io/dynamic-plates-edu/privacy-policy.html`
+  - **URL de support / Contact :** `support-edu@dynamicplates.ch` ou `https://github.com/notben/dynamic-plates-edu/issues`
 
 ---
 

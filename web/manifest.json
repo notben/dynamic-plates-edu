@@ -1,12 +1,12 @@
 {
-    "name": "dynamic_plates_edu",
-    "short_name": "dynamic_plates_edu",
+    "name": "Dynamic Plates Edu — Tectonique des Plaques",
+    "short_name": "Dynamic Plates",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "background_color": "#0f172a",
+    "theme_color": "#1e293b",
+    "description": "Laboratoire numérique interactif de géologie et de géodynamique terrestre pour l'enseignement secondaire (PER).",
+    "orientation": "any",
     "prefer_related_applications": false,
     "icons": [
         {
