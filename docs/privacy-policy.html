@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de Confidentialité — Dynamic Plates Edu</title>
+  <meta name="description" content="Politique de confidentialité et conformité Zero-Data de l'application éducative Dynamic Plates Edu (nLPD, RGPD, COPPA, Apple Kids, Google Play Families).">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #f97316;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --badge-bg: #e0f2fe;
+      --badge-text: #0369a1;
+      --success: #16a34a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 0 60px 0;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: rgba(249, 115, 22, 0.2);
+      color: #fb923c;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .lang-switcher-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(249, 115, 22, 0.4);
+    }
+
+    main {
+      max-width: 860px;
+      margin: -20px auto 0 auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .hero-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .summary-item {
+      background: #f1f5f9;
+      padding: 16px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .summary-item h3 {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .summary-item p {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 14px;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-bottom: 18px;
+      padding-left: 24px;
+      color: var(--text-muted);
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .shield-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #dcfce7;
+      color: #15803d;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .compliance-box {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      background: #fafafa;
+    }
+
+    .compliance-box strong {
+      display: block;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .lang-section {
+      display: none;
+    }
+
+    .lang-section.visible {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.7rem;
+      }
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-badge">Application Éducative 100% Hors-Ligne</div>
+    <h1>Dynamic Plates Edu</h1>
+    <p>Politique de Confidentialité & Engagement Zéro-Collecte de Données</p>
+    
+    <div class="lang-switcher-container">
+      <button class="lang-btn active" onclick="switchLanguage('fr')">Français</button>
+      <button class="lang-btn" onclick="switchLanguage('de')">Deutsch</button>
+      <button class="lang-btn" onclick="switchLanguage('it')">Italiano</button>
+      <button class="lang-btn" onclick="switchLanguage('en')">English</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== VERSION FRANÇAISE ==================== -->
+    <div id="lang-fr" class="lang-section visible">
+      <div class="card">
+        <div class="shield-badge">✓ Engagement Strict Zero-Data pour l'Enseignement</div>
+        <p><strong>Dernière mise à jour :</strong> 21 octobre 2026</p>
+        <p>L'application <strong>Dynamic Plates Edu</strong> (ID de bundle : <code>ch.edu.dynamicplates</code>) est un outil didactique de géologie et de géodynamique terrestre destiné aux élèves de l'enseignement secondaire (12-16 ans, Cycle d'Orientation en Suisse romande, collèges et lycées) ainsi qu'aux enseignants de sciences naturelles.</p>
+        
+        <div class="hero-summary">
+          <div class="summary-item">
+            <h3>Collecte de données</h3>
+            <p>0 octet collecté</p>
+          </div>
+          <div class="summary-item">
+            <h3>Connexion Internet</h3>
+            <p>100% Hors-Ligne</p>
+          </div>
+          <div class="summary-item">
+            <h3>Publicités & Traceurs</h3>
+            <p>Aucun (0)</p>
+          </div>
+          <div class="summary-item">
+            <h3>Comptes élèves</h3>
+            <p>Aucun compte requis</p>
+          </div>
+        </div>
+
+        <h2>1. Architecture 100% Hors-Ligne (Offline-First)</h2>
+        <p>L'application est conçue pour fonctionner de manière totalement autonome en classe ou à la maison, sans aucune connexion Internet requise :</p>
+        <ul>
+          <li><strong>Aucun serveur distant :</strong> L'application n'envoie et ne reçoit aucune donnée via le réseau. Sur Android, la permission réseau <code>android.permission.INTERNET</code> est intégralement désactivée en version de production.</li>
+          <li><strong>Aucun SDK tiers :</strong> Zéro outil d'analyse (pas de Google Analytics, Firebase, Flurry), zéro réseau publicitaire, zéro outil de télémétrie.</li>
+          <li><strong>Simulations vectorielles intégrées :</strong> Tous les calculs de convection, de subduction et de propagation d'ondes sismiques sont calculés localement sur le processeur graphique de votre appareil.</li>
+        </ul>
+
+        <h2>2. Zéro Collecte de Données Personnelles</h2>
+        <p>Nous appliquons une politique stricte de confidentialité par conception (<em>Privacy by Design & by Default</em>) :</p>
+        <ul>
+          <li><strong>Aucune création de compte :</strong> L'élève n'a jamais à renseigner son nom, prénom, adresse e-mail ou établissement scolaire.</li>
+          <li><strong>Aucune géolocalisation GPS :</strong> Aucune autorisation de localisation n'est demandée. La carte tectonique utilise des coordonnées cartographiques vectorielles statiques embarquées.</li>
+          <li><strong>Aucun accès aux capteurs sensibles :</strong> Pas d'accès au micro, à la caméra, aux contacts ou à la bibliothèque de photos.</li>
+          <li><strong>Stockage local exclusif (CA92.1) :</strong> Seuls les meilleurs scores aux quiz d'auto-évaluation sont enregistrés localement sur l'appareil (via <code>UserDefaults</code> / <code>SharedPreferences</code>). Ces informations ne quittent jamais votre terminal.</li>
+        </ul>
+
+        <h2>3. Conformité Légale & Réglementaire Internationale</h2>
+        <div class="compliance-grid">
+          <div class="compliance-box">
+            <strong>Suisse : nLPD</strong>
+            <p>Conforme à la nouvelle Loi fédérale sur la protection des données (nLPD) entrée en vigueur le 1er septembre 2023.</p>
+          </div>
+          <div class="compliance-box">
+            <strong>Union Européenne : RGPD</strong>
+            <p>Respect scrupuleux du Règlement Général sur la Protection des Données (Articles 8, 25 et 32).</p>
+          </div>
+          <div class="compliance-box">
+            <strong>États-Unis : COPPA</strong>
+            <p>Conforme au Children's Online Privacy Protection Act (aucune information collectée sur des mineurs de moins de 13 ans).</p>
+          </div>
+          <div class="compliance-box">
+            <strong>Apple & Google Stores</strong>
+            <p>Conforme aux directives Apple "Kids Category" et à la "Google Play Families Policy".</p>
+          </div>
+        </div>
+
+        <h2>4. Sécurité Parental Gate</h2>
+        <p>Conformément aux exigences strictes de l'App Store pour les applications éducatives jeunesse, tout éventuel lien externe (tel que la présente politique de confidentialité) est protégé par une barrière parentale (<strong>Parental Gate</strong>) exigeant la résolution d'une opération arithmétique complexe avant ouverture.</p>
+
+        <h2>5. Contact & Responsable de Publication</h2>
+        <p>Pour toute question relative à l'utilisation pédagogique de l'application ou à cette politique de confidentialité :</p>
+        <p><strong>Éditeur :</strong> Projet Pédagogique Dynamic Plates Edu<br>
+        <strong>Email de contact :</strong> <code>support-edu@dynamicplates.ch</code><br>
+        <strong>Localisation :</strong> Suisse (Fribourg / Vaud / Genève)</p>
+      </div>
+    </div>
+
+    <!-- ==================== VERSION ALLEMANDE ==================== -->
+    <div id="lang-de" class="lang-section">
+      <div class="card">
+        <div class="shield-badge">✓ Strikte Zero-Data-Verpflichtung für den Bildungsbereich</div>
+        <p><strong>Letzte Aktualisierung:</strong> 21. Oktober 2026</p>
+        <p>Die App <strong>Dynamic Plates Edu</strong> (Bundle-ID: <code>ch.edu.dynamicplates</code>) ist ein didaktisches Lernwerkzeug für Plattentektonik und Erdbebengeologie für Schülerinnen und Schüler der Sekundarstufe (12–16 Jahre, Lehrplan 21 / Sekundarschulen) sowie für Lehrpersonen.</p>
+
+        <div class="hero-summary">
+          <div class="summary-item">
+            <h3>Datenerhebung</h3>
+            <p>0 Bytes gesammelt</p>
+          </div>
+          <div class="summary-item">
+            <h3>Internetverbindung</h3>
+            <p>100% Offline-Betrieb</p>
+          </div>
+          <div class="summary-item">
+            <h3>Werbung & Tracker</h3>
+            <p>Keine (0)</p>
+          </div>
+          <div class="summary-item">
+            <h3>Benutzerkonten</h3>
+            <p>Kein Konto erforderlich</p>
+          </div>
+        </div>
+
+        <h2>1. 100% Offline-Architektur (Offline-First)</h2>
+        <ul>
+          <li><strong>Kein Remote-Server:</strong> Die App sendet und empfängt keinerlei Daten über das Netzwerk. In der Android-Produktionsversion ist die Internet-Berechtigung vollständig deaktiviert.</li>
+          <li><strong>Keine Drittanbieter-SDKs:</strong> Keine Analyse-Tools (kein Google Analytics, Firebase), keine Werbenetzwerke, keine Telemetrie.</li>
+          <li><strong>Lokale Simulationen:</strong> Sämtliche Berechnungen der Plattensimulationen erfolgen direkt auf dem Gerät des Nutzers.</li>
+        </ul>
+
+        <h2>2. Keine Erhebung personenbezogener Daten</h2>
+        <ul>
+          <li><strong>Keine Registrierung:</strong> Es werden weder Namen, E-Mail-Adressen noch Schulzugehörigkeiten abgefragt.</li>
+          <li><strong>Kein GPS:</strong> Keine Ortungsdienste. Die tektonische Weltkarte ist statisch und offline integriert.</li>
+          <li><strong>Ausschliesslich lokale Speicherung:</strong> Quiz-Ergebnisse werden ausschliesslich lokal auf dem Gerät gespeichert (Apple Privacy Reason CA92.1).</li>
+        </ul>
+
+        <h2>3. Gesetzliche Konformität (Schweiz, EU, USA)</h2>
+        <p>Vollständig konform mit dem Schweizer Bundesgesetz über den Datenschutz (nDSG), der europäischen Datenschutz-Grundverordnung (DSGVO), dem US-amerikanischen COPPA sowie den Richtlinien der Apple "Kids Category" und der Google Play Families Policy.</p>
+
+        <h2>4. Kontakt</h2>
+        <p><strong>Projekt:</strong> Dynamic Plates Edu<br>
+        <strong>E-Mail:</strong> <code>support-edu@dynamicplates.ch</code><br>
+        <strong>Standort:</strong> Schweiz</p>
+      </div>
+    </div>
+
+    <!-- ==================== VERSION ITALIENNE ==================== -->
+    <div id="lang-it" class="lang-section">
+      <div class="card">
+        <div class="shield-badge">✓ Rigoroso impegno Zero-Data per l'istruzione</div>
+        <p><strong>Ultimo aggiornamento:</strong> 21 ottobre 2026</p>
+        <p>L'applicazione <strong>Dynamic Plates Edu</strong> (ID bundle: <code>ch.edu.dynamicplates</code>) è uno strumento educativo di geologia e tettonica delle placche rivolto agli studenti delle scuole secondarie (12–16 anni, Piano di studio della scuola media ticinese) e ai docenti di scienze naturali.</p>
+
+        <div class="hero-summary">
+          <div class="summary-item">
+            <h3>Raccolta dati</h3>
+            <p>0 byte raccolti</p>
+          </div>
+          <div class="summary-item">
+            <h3>Connessione Internet</h3>
+            <p>100% Offline</p>
+          </div>
+          <div class="summary-item">
+            <h3>Pubblicità e tracciamento</h3>
+            <p>Nessuno (0)</p>
+          </div>
+          <div class="summary-item">
+            <h3>Account utente</h3>
+            <p>Nessun account richiesto</p>
+          </div>
+        </div>
+
+        <h2>1. Architettura 100% Offline</h2>
+        <ul>
+          <li><strong>Nessun server remoto:</strong> L'applicazione funziona interamente sul dispositivo senza connettività di rete.</li>
+          <li><strong>Nessun SDK di terze parti:</strong> Assenza totale di strumenti di profilazione, analytics o pubblicità.</li>
+          <li><strong>Motore vettoriale locale:</strong> Tutte le simulazioni tettoniche girano in tempo reale sulla GPU del dispositivo.</li>
+        </ul>
+
+        <h2>2. Zero raccolta di dati personali</h2>
+        <ul>
+          <li><strong>Nessuna registrazione:</strong> Non viene richiesto alcun dato identificativo.</li>
+          <li><strong>Nessun tracciamento GPS:</strong> Nessun accesso alla geolocalizzazione o ai sensori sensibili.</li>
+          <li><strong>Salvataggio solo locale:</strong> I punteggi del quiz rimangono confinati nella memoria locale del dispositivo (UserDefaults / SharedPreferences CA92.1).</li>
+        </ul>
+
+        <h2>3. Conformità Legale (Svizzera, UE, USA)</h2>
+        <p>Pienamente conforme alla nuova Legge federale sulla protezione dei dati (LPD svizzera), al Regolamento Generale sulla Protezione dei Dati dell'UE (GDPR), al COPPA e alle normative per bambini di Apple App Store e Google Play Store.</p>
+
+        <h2>4. Contatti</h2>
+        <p><strong>Progetto:</strong> Dynamic Plates Edu<br>
+        <strong>Email:</strong> <code>support-edu@dynamicplates.ch</code><br>
+        <strong>Ubicazione:</strong> Svizzera</p>
+      </div>
+    </div>
+
+    <!-- ==================== VERSION ANGLAISE ==================== -->
+    <div id="lang-en" class="lang-section">
+      <div class="card">
+        <div class="shield-badge">✓ Strict Zero-Data Commitment for Secondary Education</div>
+        <p><strong>Last updated:</strong> October 21, 2026</p>
+        <p>The <strong>Dynamic Plates Edu</strong> application (Bundle ID: <code>ch.edu.dynamicplates</code>) is an educational science and geology simulation tool designed for secondary school students (ages 12–16) and science teachers worldwide.</p>
+
+        <div class="hero-summary">
+          <div class="summary-item">
+            <h3>Data Collection</h3>
+            <p>0 bytes collected</p>
+          </div>
+          <div class="summary-item">
+            <h3>Internet Connection</h3>
+            <p>100% Offline</p>
+          </div>
+          <div class="summary-item">
+            <h3>Ads & Trackers</h3>
+            <p>None (0)</p>
+          </div>
+          <div class="summary-item">
+            <h3>Student Accounts</h3>
+            <p>No login required</p>
+          </div>
+        </div>
+
+        <h2>1. 100% Offline Architecture (Offline-First)</h2>
+        <ul>
+          <li><strong>No Remote Server:</strong> The app does not send or receive any data over the internet. On Android, the <code>android.permission.INTERNET</code> permission is stripped in production builds.</li>
+          <li><strong>Zero Third-Party SDKs:</strong> No analytics libraries (no Google Analytics, Firebase, or telemetry), no advertising networks, no social media plugins.</li>
+          <li><strong>Local Vector Engine:</strong> All dynamic simulations (subduction, mantle convection, volcanic plumes, earthquake waves) are rendered procedurally on-device.</li>
+        </ul>
+
+        <h2>2. Zero Personal Data Collection</h2>
+        <ul>
+          <li><strong>No Accounts or Sign-ups:</strong> Students never provide names, emails, school names, or birth dates.</li>
+          <li><strong>No GPS or Location Tracking:</strong> The tectonic atlas operates entirely on static vector datasets embedded in the application bundle.</li>
+          <li><strong>No Device Fingerprinting:</strong> No IDFA, GAID, or hardware IDs are accessed.</li>
+          <li><strong>Local Storage Only (Apple Reason CA92.1):</strong> High scores in the educational quiz are saved exclusively on the device storage via <code>UserDefaults</code> / <code>SharedPreferences</code> and never leave the device.</li>
+        </ul>
+
+        <h2>3. Global Legal & Privacy Compliance</h2>
+        <div class="compliance-grid">
+          <div class="compliance-box">
+            <strong>Switzerland: FADP / nLPD</strong>
+            <p>Fully compliant with the Swiss Federal Act on Data Protection.</p>
+          </div>
+          <div class="compliance-box">
+            <strong>European Union: GDPR</strong>
+            <p>Strictly compliant with GDPR principles of data minimization and Privacy by Design.</p>
+          </div>
+          <div class="compliance-box">
+            <strong>United States: COPPA</strong>
+            <p>Compliant with the Children's Online Privacy Protection Act (no data collected from children under 13).</p>
+          </div>
+          <div class="compliance-box">
+            <strong>Apple & Google Stores</strong>
+            <p>Fully compliant with Apple App Store "Kids Category" rules and Google Play Families Policy.</p>
+          </div>
+        </div>
+
+        <h2>4. Parental Gate Protection</h2>
+        <p>In full compliance with App Store guidelines for educational children's apps, any external link (such as this policy webpage) is safeguarded by an arithmetic parental gate to prevent accidental browsing by students.</p>
+
+        <h2>5. Contact Information</h2>
+        <p><strong>Educational Project:</strong> Dynamic Plates Edu<br>
+        <strong>Email:</strong> <code>support-edu@dynamicplates.ch</code><br>
+        <strong>Country:</strong> Switzerland</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Dynamic Plates Edu — Tous droits réservés. Outil pédagogique libre de traçage conforme au Plan d'études romand (PER).</p>
+  </footer>
+
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.lang-section').forEach(section => {
+        section.classList.remove('visible');
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      const target = document.getElementById('lang-' + lang);
+      if (target) {
+        target.classList.add('visible');
+      }
+
+      event.target.classList.add('active');
+      document.documentElement.lang = lang;
+    }
+  </script>
+</body>
+</html>
