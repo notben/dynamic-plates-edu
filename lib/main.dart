@@ -1,122 +1,256 @@
 import 'package:flutter/material.dart';
+import 'package:dynamic_plates_edu/core/theme/app_theme.dart';
+import 'package:dynamic_plates_edu/core/localization/app_strings.dart';
+import 'package:dynamic_plates_edu/features/tectonic_lab/presentation/tectonic_lab_page.dart';
+import 'package:dynamic_plates_edu/features/extreme_phenomena/presentation/extreme_phenomena_page.dart';
+import 'package:dynamic_plates_edu/features/world_atlas/presentation/world_atlas_page.dart';
+import 'package:dynamic_plates_edu/features/quiz/presentation/quiz_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const DynamicPlatesEduApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+class DynamicPlatesEduApp extends StatefulWidget {
+  const DynamicPlatesEduApp({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<DynamicPlatesEduApp> createState() => _DynamicPlatesEduAppState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _DynamicPlatesEduAppState extends State<DynamicPlatesEduApp> {
+  ThemeMode _themeMode = ThemeMode.dark;
+  AppLanguage _currentLanguage = AppLanguage.fr;
 
-  void _incrementCounter() {
+  void _toggleTheme() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      _themeMode = _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+    });
+  }
+
+  void _changeLanguage(AppLanguage lang) {
+    setState(() {
+      _currentLanguage = lang;
+      AppStrings.currentLanguage = lang;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+    return MaterialApp(
+      title: 'Dynamic Plates Edu',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: _themeMode,
+      home: MainShellScreen(
+        themeMode: _themeMode,
+        onToggleTheme: _toggleTheme,
+        currentLanguage: _currentLanguage,
+        onChangeLanguage: _changeLanguage,
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
+    );
+  }
+}
+
+class MainShellScreen extends StatefulWidget {
+  final ThemeMode themeMode;
+  final VoidCallback onToggleTheme;
+  final AppLanguage currentLanguage;
+  final ValueChanged<AppLanguage> onChangeLanguage;
+
+  const MainShellScreen({
+    super.key,
+    required this.themeMode,
+    required this.onToggleTheme,
+    required this.currentLanguage,
+    required this.onChangeLanguage,
+  });
+
+  @override
+  State<MainShellScreen> createState() => _MainShellScreenState();
+}
+
+class _MainShellScreenState extends State<MainShellScreen> {
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = const [
+    TectonicLabPage(),
+    ExtremePhenomenaPage(),
+    WorldAtlasPage(),
+    QuizPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final isWide = MediaQuery.of(context).size.width >= 720;
+    final isDark = widget.themeMode == ThemeMode.dark;
+
+    if (isWide) {
+      // Disposition Tablette (iPad) / Ordinateur / Web avec NavigationRail
+      return Scaffold(
+        body: Row(
           children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            NavigationRail(
+              selectedIndex: _currentIndex,
+              onDestinationSelected: (idx) => setState(() => _currentIndex = idx),
+              labelType: NavigationRailLabelType.all,
+              leading: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12.0),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.orange.withOpacity(0.2),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.public, color: Colors.orangeAccent, size: 28),
+                    ),
+                    const SizedBox(height: 6),
+                    const Text(
+                      'Dynamic\nPlates',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11, height: 1.1),
+                    ),
+                  ],
+                ),
+              ),
+              trailing: Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+                          tooltip: isDark ? 'Mode clair' : 'Mode sombre',
+                          onPressed: widget.onToggleTheme,
+                        ),
+                        const SizedBox(height: 8),
+                        _buildLanguageDropdown(),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              destinations: [
+                NavigationRailDestination(
+                  icon: const Icon(Icons.layers_outlined),
+                  selectedIcon: const Icon(Icons.layers),
+                  label: Text(AppStrings.get('nav_tectonic_lab')),
+                ),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.volcano_outlined),
+                  selectedIcon: const Icon(Icons.volcano),
+                  label: Text(AppStrings.get('nav_extreme_phenomena')),
+                ),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.map_outlined),
+                  selectedIcon: const Icon(Icons.map),
+                  label: Text(AppStrings.get('nav_world_atlas')),
+                ),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.school_outlined),
+                  selectedIcon: const Icon(Icons.school),
+                  label: Text(AppStrings.get('nav_quiz')),
+                ),
+              ],
+            ),
+            const VerticalDivider(thickness: 1, width: 1),
+            Expanded(
+              child: IndexedStack(
+                index: _currentIndex,
+                children: _pages,
+              ),
             ),
           ],
         ),
+      );
+    }
+
+    // Disposition Smartphone (Portrait / Étroit) avec NavigationBar
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.public, color: Colors.orangeAccent, size: 24),
+            const SizedBox(width: 8),
+            Flexible(
+              child: Text(
+                AppStrings.get('app_title'),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+            tooltip: isDark ? 'Mode clair' : 'Mode sombre',
+            onPressed: widget.onToggleTheme,
+          ),
+          _buildLanguageDropdown(),
+          const SizedBox(width: 8),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _pages,
       ),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (idx) => setState(() => _currentIndex = idx),
+        destinations: [
+          NavigationDestination(
+            icon: const Icon(Icons.layers_outlined),
+            selectedIcon: const Icon(Icons.layers),
+            label: AppStrings.get('nav_tectonic_lab'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.volcano_outlined),
+            selectedIcon: const Icon(Icons.volcano),
+            label: AppStrings.get('nav_extreme_phenomena'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.map_outlined),
+            selectedIcon: const Icon(Icons.map),
+            label: AppStrings.get('nav_world_atlas'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.school_outlined),
+            selectedIcon: const Icon(Icons.school),
+            label: AppStrings.get('nav_quiz'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLanguageDropdown() {
+    return PopupMenuButton<AppLanguage>(
+      tooltip: 'Changer de langue',
+      icon: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(color: Colors.white24),
+        ),
+        child: Text(
+          widget.currentLanguage.name.toUpperCase(),
+          style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
+        ),
+      ),
+      onSelected: widget.onChangeLanguage,
+      itemBuilder: (ctx) => [
+        const PopupMenuItem(value: AppLanguage.fr, child: Text('Français (FR - Suisse PER)')),
+        const PopupMenuItem(value: AppLanguage.de, child: Text('Deutsch (DE)')),
+        const PopupMenuItem(value: AppLanguage.it, child: Text('Italiano (IT)')),
+        const PopupMenuItem(value: AppLanguage.en, child: Text('English (EN)')),
+      ],
     );
   }
 }
