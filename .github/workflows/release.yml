@@ -12,14 +12,14 @@ permissions:
 jobs:
   build:
     name: Build Android Binaries & Web PWA
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Setup Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -53,8 +53,10 @@ jobs:
       - name: Build Web Release (PWA GitHub Pages)
         run: flutter build web --release --base-href "/dynamic-plates-edu/"
 
-      - name: Bundle Privacy Policy into Web Distribution
-        run: cp docs/privacy-policy.html build/web/privacy-policy.html
+      - name: Bundle Privacy Policy and .nojekyll into Web Distribution
+        run: |
+          cp docs/privacy-policy.html build/web/privacy-policy.html
+          touch build/web/.nojekyll
 
       # --- ARTIFACTS UPLOAD ---
       - name: Upload Android Binaries (APK & AAB)
@@ -72,6 +74,15 @@ jobs:
           name: dynamic-plates-edu-web-pwa
           path: build/web/
           if-no-files-found: error
+
+      # --- DEPLOY TO GITHUB PAGES ---
+      - name: Deploy Web to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          keep_files: false
 
       # --- RELEASE DEPLOYMENT (ON TAGS) ---
       - name: Create GitHub Release on Version Tag
