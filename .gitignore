@@ -1,0 +1,81 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ / Android Studio related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code
+.vscode/
+
+# Flutter / Dart / Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication & Obfuscation
+app.*.symbols
+app.*.map.json
+
+# Android build artifacts and Gradle
+.gradle/
+/android/app/debug
+/android/app/profile
+/android/app/release
+/android/local.properties
+/android/.gradle
+
+# iOS & CocoaPods
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/ServiceDefinitions.json
+DerivedData/
+
+# DevSecOps & Security: NEVER commit signing keys, certificates, or secrets
+*.jks
+*.keystore
+key.properties
+*.p8
+*.p12
+*.cer
+*.mobileprovision
+*.key
+*.pem
+.env
+*.env.*
+google-services.json
+GoogleService-Info.plist
+
+# Widget Preview
+.widget_preview/
+
+# Ensure Antigravity AI rules and skills are versioned in Git
+!.antigravity/
+!.antigravity/**
+!.agents/
+!.agents/**
