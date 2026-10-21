@@ -74,11 +74,17 @@ class MainShellScreen extends StatefulWidget {
 class _MainShellScreenState extends State<MainShellScreen> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = const [
-    TectonicLabPage(),
-    ExtremePhenomenaPage(),
-    WorldAtlasPage(),
-    QuizPage(),
+  void _navigateToSimulation(int simIndex) {
+    setState(() {
+      _currentIndex = 0;
+    });
+  }
+
+  List<Widget> get _pages => [
+    const TectonicLabPage(),
+    const ExtremePhenomenaPage(),
+    WorldAtlasPage(onNavigateToSimulation: _navigateToSimulation),
+    const QuizPage(),
   ];
 
   @override

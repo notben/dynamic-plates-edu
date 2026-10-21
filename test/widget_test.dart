@@ -10,7 +10,6 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
 
     await tester.pumpWidget(const DynamicPlatesEduApp());
-    // Avancer d'une frame pour les animations sans pumpAndSettle infini
     await tester.pump(const Duration(milliseconds: 200));
 
     // Vérifier l'AppBar et les onglets mobiles
@@ -51,5 +50,22 @@ void main() {
     expect(find.textContaining('Volcanisme'), findsOneWidget);
     expect(find.textContaining('Séismes'), findsOneWidget);
     expect(find.textContaining('Tsunami'), findsOneWidget);
+  });
+
+  testWidgets('Navigation to Module 3 World Atlas test', (WidgetTester tester) async {
+    tester.view.physicalSize = const Size(600, 900);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(const DynamicPlatesEduApp());
+    await tester.pump(const Duration(milliseconds: 200));
+
+    // Naviguer vers Atlas Mondial
+    await tester.tap(find.byIcon(Icons.map_outlined));
+    await tester.pump(const Duration(milliseconds: 300));
+
+    // Vérifier les onglets du module Atlas
+    expect(find.textContaining('Carte Tectonique'), findsOneWidget);
+    expect(find.textContaining('Frise Wegener'), findsOneWidget);
   });
 }
