@@ -1,0 +1,35 @@
+{
+    "name": "Dynamic Plates Edu — Tectonique des Plaques",
+    "short_name": "Dynamic Plates",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#1e293b",
+    "description": "Laboratoire numérique interactif de géologie et de géodynamique terrestre pour l'enseignement secondaire (PER).",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
