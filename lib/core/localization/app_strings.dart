@@ -1,14 +1,20 @@
 enum AppLanguage { fr, de, it, en }
 
 /// Gestion centralisée des chaînes multilingues (FR / DE / IT / EN).
-/// Conforme à la terminologie officielle du Plan d'études romand (PER) pour le Cycle d'Orientation.
+/// Conforme à la terminologie officielle du Plan d'études romand (PER) pour le Cycle d'Orientation
+/// et aux programmes suisse alémanique (Lehrplan 21) et tessinois (Piano di studio).
 class AppStrings {
   static AppLanguage currentLanguage = AppLanguage.fr;
 
-  static String get(String key) {
+  static String get(String key, [List<dynamic>? args]) {
     final map = _localizedValues[key];
-    if (map == null) return key;
-    return map[currentLanguage] ?? map[AppLanguage.fr] ?? key;
+    var text = (map == null) ? key : (map[currentLanguage] ?? map[AppLanguage.fr] ?? key);
+    if (args != null) {
+      for (int i = 0; i < args.length; i++) {
+        text = text.replaceAll('{$i}', args[i].toString());
+      }
+    }
+    return text;
   }
 
   static const Map<String, Map<AppLanguage, String>> _localizedValues = {
@@ -38,10 +44,10 @@ class AppStrings {
       AppLanguage.en: 'World Atlas',
     },
     'nav_quiz': {
-      AppLanguage.fr: 'Quiz & Histoire',
-      AppLanguage.de: 'Quiz & Geschichte',
-      AppLanguage.it: 'Quiz & Storia',
-      AppLanguage.en: 'Quiz & History',
+      AppLanguage.fr: 'Quiz & Évaluation',
+      AppLanguage.de: 'Quiz & Test',
+      AppLanguage.it: 'Quiz & Valutazione',
+      AppLanguage.en: 'Quiz & Test',
     },
 
     // Contrôles globaux
@@ -181,5 +187,180 @@ class AppStrings {
       AppLanguage.it: 'Camera magmatica & fusione parziale',
       AppLanguage.en: 'Magma chamber & partial melting',
     },
+
+    // Phénomènes Extrêmes Tabs
+    'tab_volcano': {
+      AppLanguage.fr: 'Volcanisme (4 types)',
+      AppLanguage.de: 'Vulkanismus (4 Typen)',
+      AppLanguage.it: 'Vulcanismo (4 tipi)',
+      AppLanguage.en: 'Volcanism (4 types)',
+    },
+    'tab_earthquake': {
+      AppLanguage.fr: 'Séismes (Ondes P/S)',
+      AppLanguage.de: 'Erdbeben (P/S-Wellen)',
+      AppLanguage.it: 'Terremoti (Onde P/S)',
+      AppLanguage.en: 'Earthquakes (P/S Waves)',
+    },
+    'tab_tsunami': {
+      AppLanguage.fr: 'Tsunami (Double vue)',
+      AppLanguage.de: 'Tsunami (Doppelansicht)',
+      AppLanguage.it: 'Tsunami (Doppia vista)',
+      AppLanguage.en: 'Tsunami (Dual view)',
+    },
+
+    // Atlas Tabs
+    'tab_tectonic_map': {
+      AppLanguage.fr: 'Carte Tectonique & Sites',
+      AppLanguage.de: 'Tektonische Karte & Stätten',
+      AppLanguage.it: 'Carta Tettonica & Siti',
+      AppLanguage.en: 'Tectonic Map & Sites',
+    },
+    'tab_wegener': {
+      AppLanguage.fr: 'Frise Wegener (Pangée)',
+      AppLanguage.de: 'Wegener-Zeitleiste (Pangaea)',
+      AppLanguage.it: 'Cronologia Wegener (Pangea)',
+      AppLanguage.en: 'Wegener Timeline (Pangaea)',
+    },
+
+    // Module Quiz & Évaluation
+    'quiz_header_title': {
+      AppLanguage.fr: 'Quiz & Auto-évaluation (PER)',
+      AppLanguage.de: 'Quiz & Selbsteinschätzung',
+      AppLanguage.it: 'Quiz & Autovalutazione',
+      AppLanguage.en: 'Quiz & Self-Assessment',
+    },
+    'quiz_header_subtitle': {
+      AppLanguage.fr: 'Valide tes connaissances géologiques pour le Cycle d\'Orientation (12-16 ans).',
+      AppLanguage.de: 'Überprüfe dein Wissen über die Plattentektonik für die Sekundarstufe.',
+      AppLanguage.it: 'Verifica le tue conoscenze di geologia per la scuola media.',
+      AppLanguage.en: 'Test your geological knowledge for secondary school.',
+    },
+    'quiz_best_score': {
+      AppLanguage.fr: 'Meilleur score',
+      AppLanguage.de: 'Beste Punktzahl',
+      AppLanguage.it: 'Miglior punteggio',
+      AppLanguage.en: 'Best Score',
+    },
+    'quiz_total_sessions': {
+      AppLanguage.fr: 'Sessions réalisées',
+      AppLanguage.de: 'Abgeschlossene Tests',
+      AppLanguage.it: 'Sessioni completate',
+      AppLanguage.en: 'Completed Sessions',
+    },
+    'quiz_choose_category': {
+      AppLanguage.fr: 'Choisis un domaine d\'entraînement :',
+      AppLanguage.de: 'Wähle einen Themenbereich:',
+      AppLanguage.it: 'Scegli un ambito di allenamento:',
+      AppLanguage.en: 'Choose a training domain:',
+    },
+    'quiz_cat_all': {
+      AppLanguage.fr: 'Toutes les catégories (Mixte)',
+      AppLanguage.de: 'Alle Kategorien (Gemischt)',
+      AppLanguage.it: 'Tutte le categorie (Misto)',
+      AppLanguage.en: 'All Categories (Mixed)',
+    },
+    'quiz_cat_tectonics': {
+      AppLanguage.fr: 'Tectonique des Plaques',
+      AppLanguage.de: 'Plattentektonik',
+      AppLanguage.it: 'Tettonica delle Placche',
+      AppLanguage.en: 'Plate Tectonics',
+    },
+    'quiz_cat_volcanoes': {
+      AppLanguage.fr: 'Volcanisme',
+      AppLanguage.de: 'Vulkanismus',
+      AppLanguage.it: 'Vulcanismo',
+      AppLanguage.en: 'Volcanism',
+    },
+    'quiz_cat_earthquakes': {
+      AppLanguage.fr: 'Séismes & Tsunamis',
+      AppLanguage.de: 'Erdbeben & Tsunamis',
+      AppLanguage.it: 'Terremoti e Tsunami',
+      AppLanguage.en: 'Earthquakes & Tsunamis',
+    },
+    'quiz_cat_history': {
+      AppLanguage.fr: 'Histoire des Sciences',
+      AppLanguage.de: 'Wissenschaftsgeschichte',
+      AppLanguage.it: 'Storia della Scienza',
+      AppLanguage.en: 'History of Science',
+    },
+    'quiz_start_button': {
+      AppLanguage.fr: 'Démarrer le Quiz (10 questions)',
+      AppLanguage.de: 'Quiz starten (10 Fragen)',
+      AppLanguage.it: 'Inizia il Quiz (10 domande)',
+      AppLanguage.en: 'Start Quiz (10 questions)',
+    },
+    'quiz_question_progress': {
+      AppLanguage.fr: 'Question {0} sur {1}',
+      AppLanguage.de: 'Frage {0} von {1}',
+      AppLanguage.it: 'Domanda {0} di {1}',
+      AppLanguage.en: 'Question {0} of {1}',
+    },
+    'quiz_current_score': {
+      AppLanguage.fr: 'Score : {0}',
+      AppLanguage.de: 'Punkte: {0}',
+      AppLanguage.it: 'Punteggio: {0}',
+      AppLanguage.en: 'Score: {0}',
+    },
+    'quiz_scientific_explanation': {
+      AppLanguage.fr: 'Explication scientifique (PER) :',
+      AppLanguage.de: 'Wissenschaftliche Erklärung:',
+      AppLanguage.it: 'Spiegazione scientifica:',
+      AppLanguage.en: 'Scientific explanation:',
+    },
+    'quiz_next_question': {
+      AppLanguage.fr: 'Question suivante',
+      AppLanguage.de: 'Nächste Frage',
+      AppLanguage.it: 'Prossima domanda',
+      AppLanguage.en: 'Next question',
+    },
+    'quiz_finish_button': {
+      AppLanguage.fr: 'Voir les résultats',
+      AppLanguage.de: 'Ergebnisse ansehen',
+      AppLanguage.it: 'Vedi i risultati',
+      AppLanguage.en: 'View results',
+    },
+    'quiz_results_title': {
+      AppLanguage.fr: 'Bilan de la Session',
+      AppLanguage.de: 'Ergebnis der Sitzung',
+      AppLanguage.it: 'Riepilogo della Sessione',
+      AppLanguage.en: 'Session Results',
+    },
+    'quiz_final_score': {
+      AppLanguage.fr: 'Ton score : {0} / {1} ({2}%)',
+      AppLanguage.de: 'Dein Ergebnis: {0} / {1} ({2}%)',
+      AppLanguage.it: 'Il tuo punteggio: {0} / {1} ({2}%)',
+      AppLanguage.en: 'Your score: {0} / {1} ({2}%)',
+    },
+    'quiz_grade_expert': {
+      AppLanguage.fr: 'Niveau Expert Géologue ! Tu maîtrises parfaitement la géodynamique terrestre et le programme PER.',
+      AppLanguage.de: 'Experten-Geologe! Du beherrschst die Geodynamik und den Lehrplan perfekt.',
+      AppLanguage.it: 'Livello Geologo Esperto! Padroneggi perfettamente la geodinamica terrestre.',
+      AppLanguage.en: 'Expert Geologist Level! You have mastered Earth geodynamics and curriculum standards.',
+    },
+    'quiz_grade_good': {
+      AppLanguage.fr: 'Très bon résultat ! Les grands principes tectoniques et géologiques sont bien compris.',
+      AppLanguage.de: 'Sehr gutes Ergebnis! Die tektonischen und geologischen Grundlagen sind gut verstanden.',
+      AppLanguage.it: 'Ottimo risultato! I principi tettonici e geologici sono ben compresi.',
+      AppLanguage.en: 'Very good result! Core tectonic and geological concepts are well understood.',
+    },
+    'quiz_grade_retry': {
+      AppLanguage.fr: 'Encore un petit effort ! Reviens observer les animations des plaques et relis les légendes pour t\'améliorer.',
+      AppLanguage.de: 'Noch etwas Übung nötig! Schau dir die Plattensimulationen nochmals an, um dich zu verbessern.',
+      AppLanguage.it: 'Ancora un piccolo sforzo! Esplora di nuovo le simulazioni e rileggi le legende per migliorare.',
+      AppLanguage.en: 'A little more practice needed! Explore the plate simulations and read legends to improve.',
+    },
+    'quiz_restart_button': {
+      AppLanguage.fr: 'Recommencer une série',
+      AppLanguage.de: 'Neue Runde starten',
+      AppLanguage.it: 'Inizia nuova sessione',
+      AppLanguage.en: 'Start new round',
+    },
+    'quiz_home_button': {
+      AppLanguage.fr: 'Retour à l\'accueil du Quiz',
+      AppLanguage.de: 'Zurück zur Quiz-Übersicht',
+      AppLanguage.it: 'Torna all\'inizio del Quiz',
+      AppLanguage.en: 'Back to Quiz Home',
+    },
   };
 }
+

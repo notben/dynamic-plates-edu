@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dynamic_plates_edu/core/localization/app_strings.dart';
 import 'package:dynamic_plates_edu/features/world_atlas/presentation/sub_modules/interactive_map_view.dart';
 import 'package:dynamic_plates_edu/features/world_atlas/presentation/sub_modules/wegener_timeline_view.dart';
 
@@ -43,14 +44,14 @@ class _WorldAtlasPageState extends State<WorldAtlasPage> with SingleTickerProvid
             labelColor: theme.colorScheme.primary,
             unselectedLabelColor: theme.textTheme.bodyMedium?.color?.withOpacity(0.6),
             labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-            tabs: const [
+            tabs: [
               Tab(
-                icon: Icon(Icons.public, size: 18),
-                text: 'Carte Tectonique & Sites',
+                icon: const Icon(Icons.public, size: 18),
+                text: AppStrings.get('tab_tectonic_map'),
               ),
               Tab(
-                icon: Icon(Icons.history_edu, size: 18),
-                text: 'Frise Wegener (Pangée)',
+                icon: const Icon(Icons.history_edu, size: 18),
+                text: AppStrings.get('tab_wegener'),
               ),
             ],
           ),

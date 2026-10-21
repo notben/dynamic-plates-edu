@@ -1,0 +1,466 @@
+import 'package:dynamic_plates_edu/features/quiz/data/quiz_question_model.dart';
+
+/// Banque de plus de 30 questions pédagogiques calibrées pour le Cycle d'Orientation (12-16 ans, PER).
+class QuizBank {
+  static const List<QuizQuestion> allQuestions = [
+    // --- TECTONIQUE DES PLAQUES (10 questions) ---
+    QuizQuestion(
+      id: 'tec_1',
+      category: QuizCategory.tectonics,
+      questionText: 'De quoi est constituée la lithosphère terrestre ?',
+      options: [
+        'Uniquement de la croûte continentale',
+        'De la croûte terrestre et de la partie supérieure rigide du manteau',
+        'Du manteau supérieur liquide et du noyau',
+        'De magma en fusion sous les océans',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'La lithosphère est l\'enveloppe rigide et cassante superficielle de la Terre (0 à 100 km), formée de la croûte et du manteau lithosphérique.',
+    ),
+    QuizQuestion(
+      id: 'tec_2',
+      category: QuizCategory.tectonics,
+      questionText: 'Sur quelle couche ductile et chaude glissent les plaques lithosphériques ?',
+      options: [
+        'L\'asthénosphère',
+        'Le noyau externe',
+        'La graine solide',
+        'La troposphère',
+      ],
+      correctOptionIndex: 0,
+      explanation: 'L\'asthénosphère est la partie ductile (déformable) du manteau supérieur située entre 100 et 660 km de profondeur.',
+    ),
+    QuizQuestion(
+      id: 'tec_3',
+      category: QuizCategory.tectonics,
+      questionText: 'Quel phénomène se produit au niveau d\'une dorsale médio-océanique ?',
+      options: [
+        'La destruction de croûte continentale par subduction',
+        'L\'écartement de deux plaques et la création de croûte océanique neuve',
+        'La collision de deux continents formant des montagnes',
+        'L\'arrêt total de la convection mantellique',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Une dorsale est une limite divergente où deux plaques s\'écartent, permettant au magma basaltique de remonter et de créer du plancher océanique.',
+    ),
+    QuizQuestion(
+      id: 'tec_4',
+      category: QuizCategory.tectonics,
+      questionText: 'Dans une zone de subduction, pourquoi la plaque océanique plonge-t-elle sous le continent ?',
+      options: [
+        'Parce qu\'elle est plus légère et plus chaude',
+        'Parce qu\'elle est plus dense et plus froide',
+        'Parce que le continent l\'aspire magnétiquement',
+        'Sous l\'effet de la pression atmosphérique',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'En vieillissant, la lithosphère océanique se refroidit, s\'épaissit et devient plus dense que l\'asthénosphère sous-jacente, ce qui entraîne son plongeon gravitaire.',
+    ),
+    QuizQuestion(
+      id: 'tec_5',
+      category: QuizCategory.tectonics,
+      questionText: 'Quelle grande structure géologique est née de la collision entre l\'Europe et l\'Afrique ?',
+      options: [
+        'La fosse des Mariannes',
+        'La chaîne des Alpes',
+        'Le Grand Rift Africain',
+        'L\'archipel d\'Hawaï',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Les Alpes résultent de la fermeture de l\'océan Téthys et de la collision entre la plaque eurasienne et la microplaque apulienne rattachée à l\'Afrique.',
+    ),
+    QuizQuestion(
+      id: 'tec_6',
+      category: QuizCategory.tectonics,
+      questionText: 'Quel type de limite de plaques correspond à la faille de San Andreas en Californie ?',
+      options: [
+        'Une limite convergente (collision)',
+        'Une limite divergente (dorsale)',
+        'Une limite transformante (coulissage horizontal)',
+        'Un point chaud intraplaque',
+      ],
+      correctOptionIndex: 2,
+      explanation: 'La faille de San Andreas est une faille transformante où la plaque Pacifique glisse horizontalement vers le nord par rapport à la plaque Nord-Américaine.',
+    ),
+    QuizQuestion(
+      id: 'tec_7',
+      category: QuizCategory.tectonics,
+      questionText: 'Quel vestige géologique prouve qu\'un ancien océan existait avant la collision alpine ?',
+      options: [
+        'Les ophiolites (morceaux de croûte océanique pincés dans la montagne)',
+        'La craie de Champagne',
+        'Le granite du Mont-Blanc',
+        'Le sable du Sahara',
+      ],
+      correctOptionIndex: 0,
+      explanation: 'Les ophiolites (comme au Mont Chenaillet) sont des fragments de plancher océanique et de manteau fossiles préservés lors de la collision des continents.',
+    ),
+    QuizQuestion(
+      id: 'tec_8',
+      category: QuizCategory.tectonics,
+      questionText: 'Comment s\'appelle la discontinuité sismique séparant la croûte du manteau ?',
+      options: [
+        'La discontinuité de Gutenberg',
+        'La discontinuité de Lehmann',
+        'La discontinuité de Mohorovičić (Moho)',
+        'La faille de Bénioff',
+      ],
+      correctOptionIndex: 2,
+      explanation: 'Le Moho marque une accélération brutale des ondes sismiques due au passage de la croûte (granite/basalte) au manteau (péridotite).',
+    ),
+    QuizQuestion(
+      id: 'tec_9',
+      category: QuizCategory.tectonics,
+      questionText: 'À quelle vitesse moyenne se déplacent la plupart des plaques tectoniques ?',
+      options: [
+        'Quelques kilomètres par heure',
+        'Quelques centimètres par an (de 1 à 10 cm/an)',
+        'Quelques mètres par seconde',
+        'Elles sont totalement immobiles depuis 1 million d\'années',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Les plaques se déplacent à la vitesse de pousse des ongles humains, soit généralement entre 2 et 10 centimètres par an, mesurés au millimètre par GPS.',
+    ),
+    QuizQuestion(
+      id: 'tec_10',
+      category: QuizCategory.tectonics,
+      questionText: 'Quelle est la particularité d\'un point chaud comme celui d\'Hawaï ?',
+      options: [
+        'Le panache de magma se déplace à toute vitesse sous les plaques',
+        'Le panache mantellique est profond et FIXE, perforant la plaque qui se déplace au-dessus',
+        'Il ne fonctionne que lors de la pleine lune',
+        'Il se situe toujours exactement sur une limite de plaque',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Le point chaud est enraciné profondément dans le manteau et reste immobile. La plaque océanique défilant au-dessus crée un alignement d\'îles d\'âge croissant.',
+    ),
+
+    // --- VOLCANISME (8 questions) ---
+    QuizQuestion(
+      id: 'vol_1',
+      category: QuizCategory.volcanoes,
+      questionText: 'Quel facteur chimique principal détermine la viscosité d\'un magma ?',
+      options: [
+        'Sa teneur en fer',
+        'Sa teneur en silice (SiO₂)',
+        'Sa teneur en sel marin',
+        'La couleur de ses cendres',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Plus un magma est riche en silice (>65%), plus il est visqueux, pâteux et piège les gaz, conduisant à des éruptions explosives cataclysmiques.',
+    ),
+    QuizQuestion(
+      id: 'vol_2',
+      category: QuizCategory.volcanoes,
+      questionText: 'Quel régime volcanique produit de vastes coulées de lave fluide et des volcans boucliers ?',
+      options: [
+        'Le régime plinien',
+        'Le régime hawaïen',
+        'Le régime peléen',
+        'Le régime vulcanien',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Le volcanisme hawaïen émet des laves basaltiques très fluides (<52% SiO₂) qui s\'étalent sur des kilomètres sans explosions violentes (ex: Mauna Loa).',
+    ),
+    QuizQuestion(
+      id: 'vol_3',
+      category: QuizCategory.volcanoes,
+      questionText: 'Qu\'est-ce qu\'une nuée ardente (coulée pyroclastique) ?',
+      options: [
+        'Un nuage de vapeur d\'eau inoffensif',
+        'Une avalanche brûlante de gaz, cendres et blocs rocheux dévalant à plus de 200 km/h',
+        'Une fontaine de lave liquide retombant dans le cratère',
+        'Un lac de lave refroidi',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Les nuées ardentes sont le phénomène volcanique le plus meurtrier : des mélanges de gaz surchauffés (>500°C) et de roches dévalant les pentes à très haute vitesse.',
+    ),
+    QuizQuestion(
+      id: 'vol_4',
+      category: QuizCategory.volcanoes,
+      questionText: 'Quel célèbre volcan a détruit les cités romaines de Pompéi et Herculanum en 79 ap. J.-C. ?',
+      options: [
+        'Le Stromboli',
+        'Le Vésuve (éruption plinienne)',
+        'L\'Etna',
+        'Le piton de la Fournaise',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'L\'éruption plinienne du Vésuve a projeté un immense panache de cendres et de ponces en pin parasol décrit avec précision par Pline le Jeune.',
+    ),
+    QuizQuestion(
+      id: 'vol_5',
+      category: QuizCategory.volcanoes,
+      questionText: 'Que sont les "Trapps" géologiques (ex: Trapps du Décan en Inde) ?',
+      options: [
+        'D\'immenses empilements de coulées de lave basaltique issus de gigantesques éruptions fissurales',
+        'Des cratères d\'impact de météorites',
+        'Des grottes calcaires sous-marines',
+        'Des canyons creusés par les glaciers',
+      ],
+      correctOptionIndex: 0,
+      explanation: 'Les trapps résultent d\'éruptions fissurales gigantesques déversant des millions de kilomètres cubes de lave fluide formant des plateaux étagés en escalier.',
+    ),
+    QuizQuestion(
+      id: 'vol_6',
+      category: QuizCategory.volcanoes,
+      questionText: 'Pourquoi les volcans des zones de subduction (ex: Cordillère des Andes) sont-ils explosifs ?',
+      options: [
+        'Parce que le slab océanique plongeant injecte de l\'eau dans le manteau, créant un magma riche en gaz et en silice',
+        'Parce que l\'eau de mer éteint le magma',
+        'À cause du vent violent d\'altitude',
+        'Parce que les roches y sont radioactives',
+      ],
+      correctOptionIndex: 0,
+      explanation: 'La déshydratation des minéraux de la plaque océanique hydrate le coin de manteau, abaissant son point de fusion et produisant des magmas andésitiques visqueux et très gazeux.',
+    ),
+    QuizQuestion(
+      id: 'vol_7',
+      category: QuizCategory.volcanoes,
+      questionText: 'Quel appareil volcanique résulte d\'une alternance de coulées de lave et d\'éjections de cendres ?',
+      options: [
+        'Un volcan bouclier',
+        'Un stratovolcan (ou volcan composite)',
+        'Une caldeira sous-marine',
+        'Un trapp basaltique',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Un stratovolcan (ex: Fuji-san, Vésuve, Cotopaxi) est constitué de couches stratifiées de laves, de scories et de cendres accumulées au fil des éruptions.',
+    ),
+    QuizQuestion(
+      id: 'vol_8',
+      category: QuizCategory.volcanoes,
+      questionText: 'Comment appelle-t-on le creux circulaire géant formé par l\'effondrement du toit d\'une chambre magmatique vidée ?',
+      options: [
+        'Une caldeira',
+        'Un geyser',
+        'Un guyot',
+        'Un graben',
+      ],
+      correctOptionIndex: 0,
+      explanation: 'Une caldeira (ex: Santorin, Yellowstone, Crater Lake) se forme par effondrement sommital lorsque la chambre magmatique sous-jacente est brutalement vidée.',
+    ),
+
+    // --- SÉISMES & TSUNAMIS (8 questions) ---
+    QuizQuestion(
+      id: 'eq_1',
+      category: QuizCategory.earthquakes,
+      questionText: 'Quelle est la différence fondamentale entre l\'hypocentre et l\'épicentre d\'un séisme ?',
+      options: [
+        'L\'hypocentre est en surface et l\'épicentre est sous l\'océan',
+        'L\'hypocentre (foyer) est le point de rupture en profondeur, l\'épicentre est sa projection verticale en surface',
+        'C\'est la même chose sous deux noms différents',
+        'L\'épicentre est l\'appareil qui mesure les ondes',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'L\'hypocentre (foyer) est l\'endroit exact sur la faille où débute la rupture sismique en profondeur ; l\'épicentre est le point de la surface terrestre situé à sa verticale.',
+    ),
+    QuizQuestion(
+      id: 'eq_2',
+      category: QuizCategory.earthquakes,
+      questionText: 'Quelles sont les premières ondes sismiques enregistrées par un sismographe ?',
+      options: [
+        'Les ondes de surface de Rayleigh',
+        'Les ondes P (ondes primaires de compression)',
+        'Les ondes S (ondes secondaires de cisaillement)',
+        'Les ondes sonores aériennes',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Les ondes P sont les plus rapides (6 à 8 km/s dans la croûte). Ce sont des ondes longitudinales qui compriment et dilatent la roche dans le sens de propagation.',
+    ),
+    QuizQuestion(
+      id: 'eq_3',
+      category: QuizCategory.earthquakes,
+      questionText: 'Pourquoi les ondes S ne peuvent-elles pas se propager dans le noyau externe de la Terre ?',
+      options: [
+        'Parce que le noyau externe est trop froid',
+        'Parce que les ondes S (cisaillement) ne se propagent que dans les solides et que le noyau externe est LIQUIDE',
+        'Parce que le champ magnétique les détruit',
+        'Parce que les ondes S vont trop vite',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Les fluides (liquides et gaz) n\'ont pas de résistance au cisaillement. L\'arrêt net des ondes S à 2900 km de profondeur a prouvé que le noyau externe est en fusion liquide.',
+    ),
+    QuizQuestion(
+      id: 'eq_4',
+      category: QuizCategory.earthquakes,
+      questionText: 'Sur l\'échelle de magnitude de Moment (Mw), que représente une augmentation de 1 unité (ex: de 6 à 7) ?',
+      options: [
+        'Une énergie libérée multipliée par environ 32',
+        'Une énergie simplement doublée',
+        'Une augmentation de 10% seulement',
+        'Aucune différence d\'énergie',
+      ],
+      correctOptionIndex: 0,
+      explanation: 'L\'échelle de magnitude est logarithmique : passer d\'une magnitude 6 à 7 multiplie l\'énergie sismique libérée par environ 32 ! Passer de 6 à 8 la multiplie par 1000.',
+    ),
+    QuizQuestion(
+      id: 'eq_5',
+      category: QuizCategory.earthquakes,
+      questionText: 'Quel mécanisme sous-marin déclenche la quasi-totalité des grands tsunamis destructeurs ?',
+      options: [
+        'La chute de la pluie sur l\'océan',
+        'Le rebond élastique vertical du plancher océanique lors d\'un séisme de subduction',
+        'Le passage d\'un sous-marin nucléaire',
+        'La marée haute de printemps',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Lorsqu\'un bloc chevauchant de subduction se détend brusquement vers le haut, il soulève instantanément des milliards de tonnes d\'eau qui se propagent en train d\'ondes.',
+    ),
+    QuizQuestion(
+      id: 'eq_6',
+      category: QuizCategory.earthquakes,
+      questionText: 'À quelle vitesse approximative voyage un tsunami en plein océan profond (>4000 m) ?',
+      options: [
+        '10 km/h (vitesse d\'un coureur)',
+        'Environ 700 à 800 km/h (la vitesse d\'un avion de ligne !)',
+        '300 000 km/s (vitesse de la lumière)',
+        '1 km/h',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'En eau profonde, la vitesse de l\'onde dépend de la profondeur (v = √(g · h)), atteignant jusqu\'à 800 km/h, avec une hauteur de vague minuscule (<1 m).',
+    ),
+    QuizQuestion(
+      id: 'eq_7',
+      category: QuizCategory.earthquakes,
+      questionText: 'Que se passe-t-il lorsqu\'un tsunami arrive sur les côtes peu profondes (effet de haut-fond) ?',
+      options: [
+        'L\'onde disparaît complètement',
+        'L\'onde accélère et s\'aplatit',
+        'La vague ralentit par frottement sur le fond, se resserre et s\'élève en mur d\'eau déferlant géant',
+        'L\'eau se transforme en glace',
+      ],
+      correctOptionIndex: 2,
+      explanation: 'Le ralentissement de la base de la vague concentre son énergie cinétique en hauteur : l\'eau s\'élève soudainement en une lame dévastatrice de 10 à 30 mètres de haut.',
+    ),
+    QuizQuestion(
+      id: 'eq_8',
+      category: QuizCategory.earthquakes,
+      questionText: 'Quel signe précurseur naturel indique souvent l\'arrivée imminente d\'un tsunami sur la plage ?',
+      options: [
+        'Le ciel devient vert',
+        'La mer se retire brutalement et anormalement très loin au large',
+        'Le vent tourne au nord',
+        'La température de l\'eau monte à 50°C',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Si le creux de l\'onde arrive avant la crête, l\'océan se vide soudainement de la baie sur des centaines de mètres : c\'est le signal d\'alerte absolu pour fuir vers les hauteurs !',
+    ),
+
+    // --- HISTOIRE DES SCIENCES (8 questions) ---
+    QuizQuestion(
+      id: 'his_1',
+      category: QuizCategory.history,
+      questionText: 'Qui a proposé pour la première fois en 1912 la théorie de la "Dérive des continents" ?',
+      options: [
+        'Charles Darwin',
+        'Alfred Wegener',
+        'Albert Einstein',
+        'Isaac Newton',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Le météorologue et géophysicien allemand Alfred Wegener a publié en 1912 son hypothèse de la dérive des continents à partir d\'un supercontinent originel.',
+    ),
+    QuizQuestion(
+      id: 'his_2',
+      category: QuizCategory.history,
+      questionText: 'Comment Alfred Wegener a-t-il baptisé le supercontinent unique d\'il y a 250 millions d\'années ?',
+      options: [
+        'L\'Atlantide',
+        'La Pangée',
+        'L\'Eurasie',
+        'Le Gondwana',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Du grec "Pan" (tout) et "Gê" (terre), la Pangée désigne l\'ensemble de toutes les terres émergées réunies au Permien.',
+    ),
+    QuizQuestion(
+      id: 'his_3',
+      category: QuizCategory.history,
+      questionText: 'Quel petit reptile fossile aquatique d\'eau douce a servi de preuve majeure à Wegener ?',
+      options: [
+        'Le Tyrannosaure',
+        'Le Mesosaurus',
+        'Le Diplodocus',
+        'Le Ptérodactyle',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Le Mesosaurus vivait en eau douce au Permien. On retrouve ses fossiles uniquement en Afrique du Sud et au Brésil : incapable de traverser l\'Atlantique salé, les deux continents étaient soudés !',
+    ),
+    QuizQuestion(
+      id: 'his_4',
+      category: QuizCategory.history,
+      questionText: 'Pourquoi la théorie de Wegener a-t-elle été rejetée par les scientifiques de son époque ?',
+      options: [
+        'Parce qu\'il était trop jeune',
+        'Parce qu\'il était incapable d\'expliquer quel moteur mécanique pouvait déplacer des continents entiers',
+        'Parce que les fossiles étaient faux',
+        'Parce que personne ne savait lire l\'allemand',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Wegener pensait que les continents fendaient le plancher océanique comme des brise-glaces sous l\'effet de forces de marée, ce que les calculs de physique ont réfuté comme impossible.',
+    ),
+    QuizQuestion(
+      id: 'his_5',
+      category: QuizCategory.history,
+      questionText: 'Quelle scientifique pionnière a cartographié pour la première fois le relief sous-marin mondial et la dorsale atlantique ?',
+      options: [
+        'Marie Curie',
+        'Marie Tharp',
+        'Rosalind Franklin',
+        'Ada Lovelace',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Marie Tharp a reconstitué les premiers profils bathymétriques au sonar, révélant la faille d\'effondrement (rift) continue au centre de l\'océan Atlantique.',
+    ),
+    QuizQuestion(
+      id: 'his_6',
+      category: QuizCategory.history,
+      questionText: 'Quel géologue a formulé l\'hypothèse du "double tapis roulant" de l\'expansion océanique en 1960 ?',
+      options: [
+        'Harry Hess',
+        'Alfred Wegener',
+        'Charles Richter',
+        'Andrija Mohorovičić',
+      ],
+      correctOptionIndex: 0,
+      explanation: 'Harry Hess a proposé que le manteau est animé de cellules de convection thermique qui créent du plancher océanique aux dorsales et le recyclent dans les fosses.',
+    ),
+    QuizQuestion(
+      id: 'his_7',
+      category: QuizCategory.history,
+      questionText: 'Comment les bandes de magnétisme zébrées des fonds marins (Vine & Matthews, 1963) ont-elles prouvé l\'expansion océanique ?',
+      options: [
+        'Elles changent de couleur avec la saison',
+        'Elles sont parfaitement symétriques de part et d\'autre de la dorsale et enregistrent les inversions du champ magnétique terrestre',
+        'Elles attirent les boussoles vers le fond',
+        'Elles sont faites d\'aimants géants artificiels',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'En se solidifiant, le basalte fige l\'orientation du champ magnétique terrestre. La symétrie parfaite des bandes magnétiques a apporté la preuve décisive de l\'expansion.',
+    ),
+    QuizQuestion(
+      id: 'his_8',
+      category: QuizCategory.history,
+      questionText: 'Quelle technologie spatiale moderne permet de mesurer en direct la dérive des continents au millimètre près ?',
+      options: [
+        'Le télescope spatial Hubble',
+        'Le réseau de positionnement par satellites GPS / GNSS',
+        'Les stations météorologiques terrestres',
+        'Le baromètre à mercure',
+      ],
+      correctOptionIndex: 1,
+      explanation: 'Des balises GPS fixées dans le roc mesurent jour après jour les coordonnées spatiales millimétriques de chaque plaque, confirmant toutes les prédictions tectoniques.',
+    ),
+  ];
+
+  /// Tire un échantillon aléatoire de questions (10 par défaut), avec filtre optionnel par catégorie.
+  static List<QuizQuestion> getRandomQuestions({int count = 10, QuizCategory? category}) {
+    final pool = category == null
+        ? List<QuizQuestion>.from(allQuestions)
+        : allQuestions.where((q) => q.category == category).toList();
+    pool.shuffle();
+    return pool.take(count).toList();
+  }
+}
+
